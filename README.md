@@ -1,3 +1,5 @@
+https://boiling-meadow-62536.herokuapp.com/
+
 # RottenPotatoes demo app: getting started
 
 This app is associated with the free [online
