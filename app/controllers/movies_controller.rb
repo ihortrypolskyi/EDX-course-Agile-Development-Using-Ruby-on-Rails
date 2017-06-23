@@ -13,17 +13,25 @@ class MoviesController < ApplicationController
   def index
     @all_ratings = Movie.distinct.pluck(:rating)
     @ratings = (params[:ratings].present? ? params[:ratings] : @all_ratings)
-
+    # debugger
     if params[:sort] == 'title'
       @movies = Movie.order('title ASC')
       @title_hilite = 'hilite'
+      session[:sort] = params[:sort]
     elsif params[:sort] == 'release_date'
       @movies = Movie.order('release_date ASC')
       @relese_date_hilite = 'hilite'
+      session[:sort] = params[:sort]
     elsif params[:ratings]
       @movies = Movie.where(rating: params[:ratings].keys)
+      session[:ratings] = params[:ratings]
     else
       @movies = Movie.all
+    end
+
+    if params[:sort] != session[:sort] || params[:ratings] != session[:ratings]
+      redirect_to movies_path sort: session[:sort], ratings: session[:ratings]
+
     end
   end
 
