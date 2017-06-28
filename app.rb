@@ -69,10 +69,12 @@ class HangpersonApp < Sinatra::Base
   
   get '/win' do
     erb :win # You may change/remove this line
+    redirect '/show'
   end
   
   get '/lose' do
     erb :lose # You may change/remove this line
+    redirect '/show'
   end
   
 end
