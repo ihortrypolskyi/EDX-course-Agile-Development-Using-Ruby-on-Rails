@@ -23,7 +23,7 @@ class HangpersonGame
     raise ArgumentError if letter.nil? || letter.empty? || letter =~ /[^A-Za-z]/
     letter = letter.downcase  
     if (@guesses.include?(letter)) || (@wrong_guesses.include?(letter))
-      false
+      false 
     else
       if @word.include?(letter)
         @guesses.concat(letter)
