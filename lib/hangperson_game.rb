@@ -7,12 +7,13 @@ class HangpersonGame
 
   # def initialize()
   # end
-  attr_accessor :guesses, :word, :wrong_guesses
+  attr_accessor :guesses, :word, :wrong_guesses, :valid
   
   def initialize(word)
     @word = word
     @guesses = ''
     @wrong_guesses = ''
+    @valid
   end
   
   def new(word)
@@ -40,10 +41,13 @@ class HangpersonGame
   
   def check_win_or_lose
     if  @word == self.word_with_guesses
+      @valid = :win
       :win
     elsif @wrong_guesses.size == 7
+      @valid = :lose
       :lose
     else
+      @valiid = :play
       :play
     end
   end

@@ -59,8 +59,11 @@ class HangpersonApp < Sinatra::Base
   # wrong_guesses and word_with_guesses from @game.
   get '/show' do
      if @game.check_win_or_lose == :win
-       erb :win
+       @game.valid = :win
+       redirect '/win'
      elsif @game.check_win_or_lose == :lose
+       @game.valid = :lose
+       redirect '/lose'
        erb :lose
      else 
        @game.word_with_guesses
@@ -69,13 +72,21 @@ class HangpersonApp < Sinatra::Base
   end
   
   get '/win' do
-    erb :win # You may change/remove this line
-    # redirect '/show'
+    if @game.valid == :win
+      erb :win
+    else
+      redirect '/show'
+    end
+
   end
   
   get '/lose' do
-    erb :lose # You may change/remove this line
-    # redirect '/show'
+    if @game.valid == :lose
+      erb :lose
+    else
+      redirect '/show'
+    end
+
   end
   
 end
