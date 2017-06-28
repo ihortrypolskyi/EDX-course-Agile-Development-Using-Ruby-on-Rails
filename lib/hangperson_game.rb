@@ -27,10 +27,8 @@ class HangpersonGame
     else
       if @word.include?(letter)
         @guesses.concat(letter)
-        true
       else
         @wrong_guesses.concat(letter)
-        true
       end
     end
   end
@@ -50,7 +48,6 @@ class HangpersonGame
     end
   end
   
- 
    
   def self.get_random_word
     require 'uri'
