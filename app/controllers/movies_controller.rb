@@ -30,8 +30,7 @@ class MoviesController < ApplicationController
     end
 
     if params[:sort] != session[:sort] || params[:ratings] != session[:ratings]
-      redirect_to movies_path sort: session[:sort], ratings: session[:ratings]
-
+      redirect_to movies_path sort: session[:sort], ratings: session[:ratings] and return
     end
   end
 
