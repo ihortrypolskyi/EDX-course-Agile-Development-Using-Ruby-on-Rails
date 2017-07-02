@@ -18,10 +18,16 @@ class MoviesController < ApplicationController
       @movies = Movie.order('title ASC')
       @title_hilite = 'hilite'
       session[:sort] = params[:sort]
+        if params[:ratings] && params[:sort] == 'title'
+         @movies = Movie.where(rating: params[:ratings].keys).order('title ASC')
+        end
     elsif params[:sort] == 'release_date'
       @movies = Movie.order('release_date ASC')
       @relese_date_hilite = 'hilite'
       session[:sort] = params[:sort]
+        if params[:ratings] && params[:sort] == 'release_date'
+         @movies = Movie.where(rating: params[:ratings].keys).order('release_date ASC')
+        end
     elsif params[:ratings]
       @movies = Movie.where(rating: params[:ratings].keys)
       session[:ratings] = params[:ratings]
