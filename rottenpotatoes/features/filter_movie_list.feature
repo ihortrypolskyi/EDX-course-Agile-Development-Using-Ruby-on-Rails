@@ -27,8 +27,8 @@ Scenario: restrict to movies with 'PG' or 'R' ratings
   And I press "ratings_submit"
   Then I should see /^PG$/
   And I should see /^R$/
-  And I should not see /^PG-13$/
   And I should not see /^G$/
+  And I should not see /^PG-13$/
 
   # enter step(s) to check the 'PG' and 'R' checkboxes
   # enter step(s) to uncheck all other checkboxes
