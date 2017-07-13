@@ -201,7 +201,7 @@ DEPENDENCIES
   launchy
   pg
   rails (= 4.2.6)
-  rspec-rails
+  rspec-rails (~> 3.5)
   sass-rails (~> 5.0.3)
   simplecov
   sqlite3

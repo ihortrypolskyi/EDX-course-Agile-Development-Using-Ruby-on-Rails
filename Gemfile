@@ -12,7 +12,7 @@ group :development, :test do
   gem 'database_cleaner', '1.4.1'
   gem 'capybara', '2.4.4'
   gem 'launchy'
-  gem 'rspec-rails'
+  gem 'rspec-rails', '~> 3.5'
   gem 'ZenTest', '4.11.0'
 end
 
