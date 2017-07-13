@@ -4,6 +4,7 @@ Given(/^the following movies exist:/) do |movies|
     end
 end
 
-When(/^(?:|I )go to (.+)$/) do |page_name|
-  visit path_to(page_name)
+Then(/^the director of "([^"]*)" should be "([^"]*)"$/) do |movie_title, director|
+    movie = Movie.where(title: movie_title).first
+    expect(movie.director).to eql(director)
 end
