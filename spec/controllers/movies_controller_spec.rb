@@ -34,18 +34,15 @@ RSpec.describe MoviesController, type: :controller do
             end
             
             it 'does not search for director' do
-                # get :similar, id: 198
                 expect(Movie).to_not receive(:where)
               
             end
             
             it 'redirects to home page' do
-                # get :similar, id: 198
                 expect(response).to redirect_to(movies_path)
             end
             
             it "rises warning" do
-                # get :similar, id: 198
                 expect(flash[:warning]).to match (/has no director info/)
             end
         end
